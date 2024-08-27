@@ -38,4 +38,17 @@ output application/json
 			</ee:message>
 		</ee:transform>
 	</flow>
+	<flow name="somecraftFlow2" doc:id="b4d48e94-4aef-44cf-8334-756bdf6f014e" >
+		<http:listener doc:name="Listener" doc:id="3b9bf52c-caba-44ac-ae2b-cd83d411125b" config-ref="HTTP_Listener_config" path="/another"/>
+		<ee:transform doc:name="Transform Message" doc:id="3b0e8578-c622-45f6-890a-f2794a21d586" >
+			<ee:message >
+				<ee:set-payload ><![CDATA[%dw 2.0
+output application/json
+---
+{
+	"message": "This is another flow"
+}]]></ee:set-payload>
+			</ee:message>
+		</ee:transform>
+	</flow>
 </mule>
